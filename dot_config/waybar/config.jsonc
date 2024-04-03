@@ -1,0 +1,226 @@
+[{
+	"layer": "top",
+	"position": "top",
+	"margin-top": 3,
+	"margin-left": 3,
+	"margin-right": 3,
+	"spacing": 6,
+	"exclusive": true,
+	"reload_style_on_change" : true,
+	// For Icons Alignments use "<span font_family='Material Icons' rise='-4000' size='large'>" before putting icons in format section.
+	"modules-left": ["clock#2", "clock", "custom/pacman", "tray"],
+	"modules-center": ["hyprland/workspaces"],
+	"modules-right": ["custom/notification", "network", "backlight", "pulseaudio", "battery"],
+
+	"hyprland/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"sort-by-number": true,
+		"on-click": "activate",
+		"format": " {icon} ",
+		"format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五"
+		},
+    "persistent-workspaces": {
+      "eDP-1": [1, 2, 3, 4, 5]
+    }
+	},
+
+	"clock": {
+		"format": "󰥔 {:%R} ",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+	},
+
+  "custom/pacman": {
+    "format": "  {} ",
+    "exec": "checkupdates | wc -l",
+    "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+    "interval": 15,
+    "on-click": "kitty -e paru -Syu && notify-send 'The system has been updated' "
+  },
+
+    "custom/notification": {
+    "tooltip": false,
+    "format": "{icon} {}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+	
+	"custom/separator": {
+		"tooltip": false,
+		"format": "󰟃"
+	},
+
+	"clock#2": {
+		"format": " {:%a %d/%m/%y} ",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+	},
+
+	"custom/player": {
+		"format": " {}",
+		"max-length": 200,
+		"exec-if": "pgrep spotify",
+		"exec-on-event": "on-click",
+		"interval": 1,
+		"return-type": "json",
+		"on-click": "playerctl -p spotify play-pause",
+		"on-scroll-up": "playerctl -p spotify previous",
+		"on-scroll-down": "playerctl -p spotify next",
+		"tooltip": true,
+		"escape": true,
+		"exec": "$HOME/.config/waybar/scripts/player.sh"
+	},
+    "wlr/taskbar": {
+    "format": "{icon} {name} ",
+    "icon-size": 13,
+    "tooltip": false,
+    "on-click": "activate",
+    "on-click-right": "close",
+    "app_ids-mapping": {
+      "gnome-terminal-server": "org.gnome.Terminal"
+            },
+    "rewrite": {
+      "Firefox Web Browser": "Firefox"
+    }
+  },
+
+	"mpd#2": {
+		"format": "" ,
+		"format-disconnected": "",
+		"format-paused": "",
+		"format-stopped": "",
+		"on-click": "mpc -q pause && mpc -q prev && mpc -q start",
+		"interval": 1
+	},
+    
+	"mpd#3": {
+		"interval": 1,
+		"format": "{stateIcon}",
+		"format-disconnected": "",
+		"format-paused": "{stateIcon}",
+		"format-stopped": "",
+		"state-icons": {
+			"paused": "",
+			"playing": ""
+		},
+		"on-click": "mpc toggle",
+		"interval": 1
+	},
+    
+	"mpd#4": {
+		"format": "",
+		"format-disconnected": "",
+		"format-paused": "",
+		"format-stopped": "",
+		"on-click": "mpc -q pause && mpc -q next && mpc -q start",
+		"interval": 1
+	},
+
+	"tray": {
+		"icon-size": 20,
+    "show-passive-items": true
+	},
+
+	"mpd": {
+		"tooltip": true,
+		"tooltip-format": "{artist} - {album} - {title} - Total Time : {totalTime:%M:%S}",
+		"format": "  {elapsedTime:%M:%S}",
+		"format-disconnected": " MPD Disconnected",
+		"format-stopped": "",
+		"on-click": "mpc toggle",
+		"interval": 1
+	},		
+
+	"network": {
+		"tooltip": true,
+    "on-click": "XDG_CURRENT_DESKTOP='gnome' gnome-control-center wifi &",
+		"format-wifi": "{icon} {essid} ",
+		"format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+		"format-ethernet": "󰈀 {ipaddr}",
+    "format-disconnected": "󰤮",
+		"tooltip-format": "󰩠 {ipaddr} |  {bandwidthDownBits} |  {bandwidthUpBits}",
+		"interval": 3
+	},
+
+	"cpu": {
+		"tooltip": false,
+		"format": " {usage}%",
+		"interval": 3
+	},
+
+	"backlight": {
+		"tooltip": false,
+    "reverse-scrolling": true,
+		"format": "{icon} {percent}% ",
+		"format-icons": ["󰃞", "󰃟", "󰃠"]
+	},
+
+	"pulseaudio": {
+		"tooltip": false,
+    "reverse-scrolling": true,
+		"on-click": "pavucontrol",
+		"scroll-step":1,
+		"format": "{icon} {volume}% ",
+		"format-muted": "󰝟",
+		"format-bluetooth": "󰥰",
+		"format-icons": {
+			"headphone": "󰋋",
+			"headset": "󰋎",
+			"default": ["󰕿", "󰖀", "󰕾"]
+		}
+	},
+
+	"battery": {
+    "on-click": "/home/drtjm/.config/waybar/scripts/./wofi-power.sh",
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"interval": 300,
+		"format-charging": "󰂄 {capacity}%",
+		"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+	}
+},
+{
+  "name": "bottombar",
+  "layer": "top",
+  "position": "bottom",
+  "margin-bottom": 3,
+  "margin-left": 3,
+  "margin-right": 3,
+  "spacing": 15,
+  "exclusive": true,
+  "reload_style_on_change": true,
+  "modules-center": ["wlr/taskbar"],
+  
+  "wlr/taskbar": {
+    "format": " {icon} {name}   ",
+    "icon-size": 13,
+    "tooltip": false,
+    "on-click": "activate",
+    "on-click-right": "close",
+    "app_ids-mapping": {
+      "gnome-terminal-server": "org.gnome.Terminal"
+      }
+    }
+  }
+]
