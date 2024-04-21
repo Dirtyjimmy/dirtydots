@@ -1,0 +1,225 @@
+@import 'wallust.css';
+* {
+	all: unset; /*this is really important to isolate waybar from gtk*/
+	font-family: "comfortaa, Symbols Nerd Font";
+	font-size: 16px;
+	font-weight: normal;
+}
+
+/*window#waybar {
+	border: 3px solid @color9;
+	border-radius: 10px;
+	background: transparent;
+}*/
+
+tooltip {
+	background: @background;
+	border-radius: 8px;
+	border-width: 3px;
+	border-style: solid;
+	border-color: @color9;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+#workspaces button {
+	color: #696969;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	transition: all 0.3s ease-in-out;
+  border-top: 3px solid @color9;
+  background-color: rgba(0, 0, 0, 0.4)
+}
+
+#workspaces button.active { 
+	transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  border-bottom: 1px solid #fff;
+}
+
+#workspaces button.visible {
+  color: #fff;
+}
+
+#workspaces button.empty {
+  color: #02494e;
+}
+
+#workspaces button.urgent {
+	color: #FF0000;
+	transition: all 0.3s ease-in-out;
+}
+
+#clock.2 {
+	color: @foreground;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 13px;
+  border-right: 3px solid @color9;
+  border-bottom: 3px solid @color9;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+}
+
+#memory {
+  color: @foreground;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 3px;
+  border-bottom: 3px solid @color9;
+  border-right: 3px solid @color9;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+}
+
+#custom-notification {
+  font-family: "NotoSansMono Nerd Font";
+  color: @foreground;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  border-bottom: 3px solid @color9;
+  border-left: 3px solid @color9;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+}
+
+
+#taskbar {
+  border-bottom: 3px solid @color9;
+  border-radius: 0px;
+  color: @foreground;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#taskbar button.active {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#custom-separator {
+	color: @foreground;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+#clock {
+	color: @foreground;
+	padding-top: 3px;
+	padding-bottom: 3px;
+  padding-left: 3px;
+  border-right: 3px solid @color9;
+  border-bottom: 3px solid @color9;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#mpd.2 {
+	color: @foreground;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+#mpd.3 {
+	color: @foreground;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+#mpd.4 {
+	color: @foreground;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+#tray {
+	color: @foreground;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+#custom-player {
+	color: @foreground;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+#mpd {
+	color: @foreground;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+#network {
+	color: @foreground;
+	padding-top: 3px;
+	padding-bottom: 3px;
+  padding-left: 3px;
+  border-left: 3px solid @color9;
+  border-bottom: 3px solid @color9;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#cpu {
+	color: @foreground;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+#backlight {
+	color: @foreground;
+	padding-top: 3px;
+	padding-bottom: 3px;
+  padding-left: 3px;
+  border-left: 3px solid @color9;
+  border-bottom: 3px solid @color9;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#pulseaudio {
+	color: @foreground;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	/*padding-right: 13px; */ /* Diable this line if using laptop with battery */
+  padding-left: 3px;
+  border-left: 3px solid @color9;
+  border-bottom: 3px solid @color9;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#battery {
+	color: @foreground;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-right: 7px;  /* Enable this line if using laptop with battery */
+  padding-left: 3px;
+  border-left: 3px solid @color9;
+  border-bottom: 3px solid @color9;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#battery.warning {
+	color: #FF0000;
+}
+
+#battery.critical {
+	color: #FFFF00;
+}
+
+#custom-pacman {
+  color: @foreground;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 3px;
+  border-right: 3px solid @color9;
+  border-bottom: 3px solid @color9;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.4);
+
+}
