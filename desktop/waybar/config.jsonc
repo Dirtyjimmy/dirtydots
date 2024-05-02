@@ -4,10 +4,11 @@
   "margin-bottom": 0,
   "modules-left": [
     "custom/launcher",
-    "hyprland/window",
+    "custom/spotify",
   ],
   "modules-center": ["clock"],
   "modules-right": [
+    "custom/notification",
     "custom/updates",
     "temperature",
     "memory",
@@ -23,7 +24,7 @@
     "tooltip": false
   },
   "custom/updates": {
-    "on-click": "kitty fish || paru",
+    "on-click": "kitty paru",
     "format": "{icon} {}",
     "return-type": "json",
     "format-icons": {
@@ -33,6 +34,41 @@
     "exec-if": "which waybar-module-pacman-updates",
     "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300"
    },
+
+  "cava": {
+        "framerate": 60,
+        "autosens": 0,
+        "sensitivity": 100,
+        "bars": 40,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "method": "pulse",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.90,
+        "input_delay": 2,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+                   "on-click-right": "mode"
+                   }
+  },
+
+	"custom/spotify": {
+		"interval": 1,
+		"format":"{icon}{}",
+		"format-icons": {
+			"playing": "<span rise='1pt'>󰏤</span>",
+			"paused": "<span rise='1pt'>󰐊</span>",
+			"stopped": "<span font='15'></span>"
+		},
+		"return-type": "json",
+		"exec": "$HOME/.config/waybar/scripts/spotify",
+		"on-click": "spotify"
+	},
 
   "tray": {
     "icon-size": 24,
@@ -56,9 +92,9 @@
       "(\\d\\. )?(.*) vim": "<span color=\"#89ca78\"> Vim</span>",
       "vim (.*)": "<span color=\"#89ca78\"> Vim</span>",
       "vim": "<span color=\"#89ca78\"> Vim</span>",
-      "(\\d\\. )?(.*) Mozilla Firefox": "<span color=\"#f97583\">󰈹 Firefox</span>",
-      "Mozilla Firefox (.*)": "<span color=\"#f97583\">󰈹 Firefox</span>",
-      "Mozilla Firefox": "<span color=\"#f97583\">󰈹 Firefox</span>",
+      "(\\d\\. )?(.*) LibreWolf": "<span color=\"#f97583\">󰈹 Firefox</span>",
+      "LibreWolf (.*)": "<span color=\"#f97583\">󰈹 Firefox</span>",
+      "LibreWolf": "<span color=\"#f97583\">󰈹 Firefox</span>",
       "(\\d\\. )?(.*) Google Chrome": "<span color=\"#89ca78\"> Google Chrome</span>",
       "Google Chrome (.*)": "<span color=\"#89ca78\"> Google Chrome</span ",
       "Google Chrome": "<span color=\"#89ca78\"> Google Chrome</span>",
@@ -149,4 +185,21 @@
     "interval": 1,
     "format-alt": "<span size='14pt' font_weight='bold'>{:%d/%m/%Y}</span>",
   },
+  "custom/notification": {
+    "tooltip": true,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "",
+      "none": "",
+      "dnd-notification": "",
+      "dnd-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-middle": "swaync-client -C",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  }
 }
