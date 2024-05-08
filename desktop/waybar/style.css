@@ -10,15 +10,21 @@
 }
 
 #waybar {
-  background: rgba(0, 0, 0, 0);
-  /*background: rgba(25, 23, 36, 0.8);*/
+ 
+  background: transparent;
   color: rgba(0, 0, 0, 0);
   font-size: 16px;
-  font-family: "Hack Nerd Font";
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
 }
 
 .modules-left {
-  margin-left: 8px;
+  margin: 6px 4px;
+  background: @tx;
+  border: 2px solid;
+  border-color: @tx-2;
+  border-radius: 30px;
+  
 }
 
 .modules-right {
@@ -43,35 +49,24 @@
 
 #custom-launcher {
   font-size: 20px;
-  padding-left: 11px;
-  padding-top: 6px;
+  padding-left: 6px;
+  padding-top: 0px;
   color: @hyprlogo;
 }
 
 #custom-spotify {
-  padding-top: 6px;
-  padding-right: 14px;
+  padding-top: 0px;
+  padding-right: 16px;
   padding-left: 14px;
-  color: @tx;
-}
-
-#custom-notification {
-  padding-top: 6px;
-  padding-left: 14px;
-  padding-right: 14px;
-  color: @tx;
-}
-
-#custom-updates {
-  color: @tx;
-  padding-right: 14px;
-  padding-left: 14px;
+  color: #425047;
 }
 
 #custom-powermenu,
 #cpu,
 #custom-weather,
 #temperature,
+#custom-spotify,
+#custom-launcher,
 #memory,
 #workspaces,
 #custom-cmus,
@@ -80,35 +75,68 @@
 #pulseaudio,
 #tray,
 #network {
-  padding: 4px 8px;
+  padding: 1px 8px;
   border-radius: 30px;
   margin: 6px 4px;
-}
+  }
 
 #window {
   color: @text;
 }
 
 #custom-powermenu {
-  color: @tx;
-  padding-right: 11px;
+  color: @tx-2;
+  background: @tx;
+  border: 2px solid;
+  padding-right: 13px;
+}
+
+#custom-updates {
+  color: @tx-2;
+  background: @tx;
+  border: 2px solid;
+}
+
+#tray {
+  padding-right: 6px;
+  background: @tx;
+  border: 2px solid;
+  border-color: @tx-2;
+}
+
+#custom-notification {
+  padding-top: 6px;
+  padding-left: 14px;
+  padding-right: 14px;
+  color: @tx-2;
+  background: @tx;
+  border: 2px solid;
 }
 
 #pulseaudio {
-  color: @tx;
-  padding-right: 14px;
+  color: @tx-2;
+  background: @tx;
+  border: 2px solid;
+  padding-right: 8px;
 }
 
 #cpu {
-  color: @tx;
+  color: @tx-2;
+  background: @tx;
+  border: 2px solid;
+
 }
 
 #temperature {
-  color: @tx;
+  color: @tx-2;
+  background: @tx;
+  border: 2px solid;
 }
 
 #memory {
-  color: @tx;
+  color: @tx-2;
+  background: @tx;
+  border: 2px solid;
 }
 
 #network {
@@ -117,7 +145,8 @@
 }
 
 #clock {
-  color: @tx;
+  color: @tx-2;
+  background: @tx;
   border: solid 2px;
   /*background: @pine;*/
   /* opacity: 0.7; */

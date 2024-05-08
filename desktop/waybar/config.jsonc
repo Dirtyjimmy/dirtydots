@@ -8,18 +8,18 @@
   ],
   "modules-center": ["clock"],
   "modules-right": [
-    "custom/notification",
-    "custom/updates",
+   // "custom/notification",
+   // "custom/updates",
+    "tray",
     "temperature",
     "memory",
     "cpu",
     "pulseaudio",
-    "tray",
     "custom/powermenu",
   ],
 
   "custom/launcher": {
-    "format": " ",
+    "format": "",
     "on-click": "killall wofi || wofi --show drun",
     "tooltip": false
   },
@@ -165,7 +165,7 @@
     "format-muted": "",
     "format-icons": {
       "headphone": "󰋎",
-      "default": ["", ""],
+      "default": [" ", " "],
     },
     "scroll-step": 5,
     "on-click": "pavucontrol",
