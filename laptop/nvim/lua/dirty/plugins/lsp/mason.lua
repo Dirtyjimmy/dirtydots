@@ -24,13 +24,7 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        "clangd",
-        "cssls",
-        "gopls",
-        "html",
-        "pyright",
-        "markdown_oxide",
-        "lua_ls",
+        
       },
     })
   end,
