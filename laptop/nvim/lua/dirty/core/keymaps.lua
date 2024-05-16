@@ -33,3 +33,19 @@ keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) 
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 keymap.set("n", "<tab>", "<cmd>bnext<CR>", { desc = "Go to next buffer"})
 keymap.set("n", "<S-tab>", "<cmd>bprev<CR>", { desc = "Go to previous buffer"})
+
+vim.api.nvim_set_keymap("n", "<leader>sn", "<Plug>(SpotifySkip)", { silent = true }) -- Skip the current track
+vim.api.nvim_set_keymap("n", "<leader>sp", "<Plug>(SpotifyPause)", { silent = true }) -- Pause/Resume the current track
+vim.api.nvim_set_keymap("n", "<leader>ss", "<Plug>(SpotifySave)", { silent = true }) -- Add the current track to your library
+vim.api.nvim_set_keymap("n", "<leader>so", ":Spotify<CR>", { silent = true }) -- Open Spotify Search window
+vim.api.nvim_set_keymap("n", "<leader>sd", ":SpotifyDevices<CR>", { silent = true }) -- Open Spotify Devices window
+vim.api.nvim_set_keymap("n", "<leader>sb", "<Plug>(SpotifyPrev)", { silent = true }) -- Go back to the previous track
+vim.api.nvim_set_keymap("n", "<leader>sh", "<Plug>(SpotifyShuffle)", { silent = true }) -- Toggles shuffle mode
+
+keymap.set("n", "t", "<cmd>ToggleTerm direction=horizontal<cr>")
+
+vim.keymap.set({'n', 'x', 'o'}, 's',  '<Plug>(leap-forward)')
+vim.keymap.set({'n', 'x', 'o'}, 'S',  '<Plug>(leap-backward)')
+vim.keymap.set({'n', 'x', 'o'}, 'gs', '<Plug>(leap-from-window)')
+
+
