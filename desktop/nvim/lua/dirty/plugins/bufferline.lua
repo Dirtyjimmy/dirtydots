@@ -2,7 +2,7 @@ return {
   "akinsho/bufferline.nvim",
     event = 'ColorScheme',
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  version = "*",
+  version = "4.6.0",
   opts = {
     options = {
       numbers = "ordinal",
